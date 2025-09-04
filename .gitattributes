@@ -1,8 +1,0 @@
-*.go text eol=lf
-
-*.md text eol=lf
-*.txt text eol=lf
-
-*.exe binary
-*.zip binary
-*.tar.gz binary
