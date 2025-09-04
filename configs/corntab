@@ -1,0 +1,24 @@
+# This is the configuration file for the corn Daemon.
+# Each line defines a job, and has the following structure:
+# 
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12)
+# |  |  |  |  .---- day of week (0 - 6) (Sunday is 0)
+# |  |  |  |  |
+# *  *  *  *  * command to execute
+# 
+# - Use '*' for 'every'.
+# - Use comma-separated values for specific times (e.g., "0,15,30,45").
+# - Does not support ranges (e.g., "8-17") or steps (e.g., "*/15").
+# 
+
+# Job 1: Runs every minute. Pings localhost once.
+* * * * * ping 127.0.0.1 -n 1
+
+# Job 2: Every 5 minutes, append the current date and a message to a log file. This demonstrates using shell redirection.
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * echo "Here is corn" >> corn_output.log
+
+# Job 3: This job is disabled because it is commented out.
+# 30 14 * * * echo "This is a disabled job"
